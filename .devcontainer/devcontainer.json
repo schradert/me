@@ -1,0 +1,21 @@
+{
+	"name": "Portfolio",
+	
+  "dockerComposeFile": "./docker-compose.yaml",
+  "service": "website",
+  "workspaceFolder": "/usr/src/womb",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [8000],
+  "remoteUser": "forkman",
+
+	"settings": { 
+    "git.path": ["/usr/bin/git", "C:\\Program Files\\Git\\cmd\\git.exe"],
+	},
+
+	// Extensions to be installed when container is created
+	"extensions": [
+		"svelte.svelte-vscode",
+    "fivethree.vscode-svelte-snippets",
+    "eamodio.gitlens"
+  ],
+}
