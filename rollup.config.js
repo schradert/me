@@ -6,8 +6,19 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import fs from 'fs';
 
 const production = !process.env.ROLLUP_WATCH;
+
+// Generate avatar image list when bundling
+(function() {
+  const images = fs.readdirSync('public/img/avatar/');
+  try {
+    fs.writeFileSync('public/avatarImages.json', JSON.stringify(images));
+  } catch (error) {
+    console.error(error);
+  }
+})();
 
 function serve() {
 	let server;
