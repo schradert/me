@@ -21,66 +21,32 @@
 
 </script>
 
-<div class="banner">
-  <div class="banner__box">
-    <div class="banner__links">
-      {#each links.work as { name, link }, i (i)}
-      <a class="banner__icon" href={link}>
-        <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
-      </a>
-      {/each}
-    </div>
-    {#await getRandomAvatar() then src}
-    <div 
-      class="avatar" 
-      style="background-image: url(/img/avatar/{src})" />
-    {/await}
-    <div class="banner__links banner__contact">
-      {#each links.contact as { name, link }, i (i)}
-      <a class="banner__icon" href={link}>
-        <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
-      </a>
-      {/each}
-    </div>
+<div class="banner__box">
+  <div class="banner__links">
+    {#each links.work as { name, link }, i (i)}
+    <a class="banner__icon" href={link}>
+      <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
+    </a>
+    {/each}
   </div>
-  <p class="title">{name}</p>
-  <p class="description">{intro}</p>
+  {#await getRandomAvatar() then src}
+  <div 
+    class="avatar" 
+    style="background-image: url(/img/avatar/{src})" />
+  {/await}
+  <div class="banner__links banner__contact">
+    {#each links.contact as { name, link }, i (i)}
+    <a class="banner__icon" href={link}>
+      <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
+    </a>
+    {/each}
+  </div>
 </div>
-<div class="banner__tail"></div>
+<p class="title">{name}</p>
+<p class="description">{intro}</p>
 
 
 <style>
-
-  .banner {
-    background-color: #1F344A;
-    width: clamp(360px, 30vw, 500px);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-
-    margin: auto;
-  }
-
-  .banner > * {
-    margin: 2% 0;
-  }
-
-  .banner__tail {
-    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-    width: clamp(360px, 30vw, 500px);
-    height: 150px;
-    background-color: #1F344A;
-    margin: auto;
-  }
-
-  @media (min-width: 720px) {
-    .banner, .banner__tail {
-      margin-left: 200px;
-    }
-  }
-
   .banner__box {
     display: flex;
     align-items: center;
@@ -124,6 +90,7 @@
 
   .title {
     font-size: 36px;
+    margin: 2% 0;
 
     color: whitesmoke;
   }
@@ -131,6 +98,7 @@
   .description {
     font-size: 14px;
     white-space: pre-line;
+    margin: 2% 0;
 
     color: whitesmoke;
   }
