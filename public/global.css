@@ -6,12 +6,31 @@ html, body {
 	height: 100%;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
 	color: #333;
-	margin: 0;
-	padding: 8px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 	box-sizing: border-box;
 	font-family: 'Righteous', cursive;
+}
+
+@media (min-width: 1080px) {
+  html::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(img/bg/brycecanyon.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: hue-rotate(180deg) grayscale(50%);
+  }
 }
 
 a {
