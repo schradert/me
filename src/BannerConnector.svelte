@@ -1,27 +1,28 @@
 <script lang="ts">
   export let tailColor: string;
-  export let headColor: string;
-  export let title: string;
+  export let headColor: string = null;
+  export let title: string = "";
   export let titleColor: string = "white";
   $: titleCapital = title.toUpperCase();
 </script>
 
-<div class="box">
+<div class="box" style={headColor ? 'background-color: #343434' : ''}>
   <div class="banner__tail" style={`background-color: ${tailColor}`}></div>
+  {#if headColor}
   <div class="next">
     <p class="title" style={`color: ${titleColor}`}>{titleCapital}</p>
     <img class="next__icon" src="/icon/doubledown.svg" alt="Go to next section" />
   </div>
   <div class="banner__head" style={`background-color: ${headColor}`}></div>
+  {/if}
 </div>
 
 
 <style>
   .box {
     position: relative;
-    width: 100%;
+    width: clamp(360px, 100%, 720px);
     min-height: 150px;
-    background-color: #343434;
   }
 
   .box > * {
@@ -48,14 +49,14 @@
 
   .banner__tail {
     clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-    width: clamp(360px, 30vw, 500px);
+    width: clamp(360px, 100%, 720px);
     height: 145px;
     margin-bottom: 5px;
   }
 
   .banner__head {
     clip-path: polygon(0% 0%, 50% 100%, 100% 0%, 100% 100%, 0% 100%);
-    width: clamp(360px, 30vw, 500px);
+    width: clamp(360px, 100%, 720px);
     height: 145px;
     margin-top: 5px;
   }
