@@ -12,7 +12,7 @@ const production = !process.env.ROLLUP_WATCH;
 
 // Generate avatar image list when bundling
 (function() {
-  const images = fs.readdirSync('public/img/avatar/');
+  const images = fs.readdirSync('public/img/avatar/').filter(pic => pic !== 'default.png');
   try {
     fs.writeFileSync('public/avatarImages.json', JSON.stringify(images));
   } catch (error) {

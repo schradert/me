@@ -1,49 +1,29 @@
 <script lang="ts">
-  const links = {
-    work: [
-      { name: "github", link: "https://github.com/schradert" },
-      { name: "gitlab", link: "https://gitlab.com/schrader.tristan" },
-      { name: "kaggle", link: "https://kaggle.com/tristanschrader" }
-    ],
-    contact: [
-      { name: "email", link: "mailto:schrader.tristan@gmail.com" },
-      { name: "linkedin", link: "https://www.linkedin.com/in/tristan-schrader-6b6b3a95/" }
-    ]
-  };
-  const name = "Tristan Schrader";
-  const intro = "I like to build things.\nBrowse the things I’ve learned to build.\nData Engineer.";
-
-  async function getRandomAvatar(): Promise<string> {
-    const response = await fetch("/avatarImages.json");
-    const images = await response.json();
-    return images[Math.floor(Math.random() * images.length)];
-  }
+  import { profiles, full_name, short_bio, avatar } from './store';
 
 </script>
 
 <div class="banner__box">
   <div class="banner__links">
-    {#each links.work as { name, link }, i (i)}
+    {#each $profiles.work as { name, link }, i (i)}
     <a class="banner__icon" href={link}>
       <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
     </a>
     {/each}
   </div>
-  {#await getRandomAvatar() then src}
   <div 
     class="avatar" 
-    style="background-image: url(/img/avatar/{src})" />
-  {/await}
+    style="background-image: url(/img/avatar/{$avatar})" />
   <div class="banner__links banner__contact">
-    {#each links.contact as { name, link }, i (i)}
+    {#each $profiles.contact as { name, link }, i (i)}
     <a class="banner__icon" href={link}>
       <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
     </a>
     {/each}
   </div>
 </div>
-<p class="title">{name}</p>
-<p class="description">{intro}</p>
+<p class="title">{$full_name}</p>
+<p class="description">{$short_bio}</p>
 
 
 <style>
