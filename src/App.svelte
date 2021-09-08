@@ -29,7 +29,7 @@
     <button class="more__projects" on:click={() => showMore = true}>Load more projects ...</button>
     {/if}
   </BannerBase>
-  <BannerConnector tailColor="#FBB500" headColor="#CD1D67" title="resume" />
+  <BannerConnector tailColor="#FBB500" headColor="#CD1D67" title="resume" titleColor="black" />
   <BannerBase color="#CD1D67">
     <iframe src="/resume.pdf" frameborder="0" title="" width="100%" id="resume"></iframe>
   </BannerBase>
@@ -115,6 +115,7 @@
 
   .top {
     display: flex;
+    justify-content: stretch;
     position: relative;
   }
 
@@ -123,12 +124,12 @@
     display: block;
     border-radius: 500px;
     margin: 5px auto;
-    border: 1px solid black;
+    border: 1px solid var(--black);
     background-color: #3CD921;
     cursor: pointer;
   }
   .more__projects:hover {
-    box-shadow: 1px 1px 2px 2px black;
+    box-shadow: 1px 1px 2px 2px var(--black);
   }
 
   #resume {
