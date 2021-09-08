@@ -1,4 +1,11 @@
-/node_modules/
-/public/build/
-.env
-.DS_Store
+
+### bloat ###
+node_modules/
+public/build/
+coverage/
+.terraform/
+
+### secrets ###
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfvars
