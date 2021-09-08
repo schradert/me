@@ -61,7 +61,7 @@ resource "github_repository_deploy_key" "key" {
 
 resource "github_repository_webhook" "prod" {
   repository = github_repository.repo.name
-  events     = ["push"]
+  events     = ["delete", "push", "pull_request"]
   configuration {
     url          = "https://api.netlify.com/hooks/github"
     content_type = "json"
