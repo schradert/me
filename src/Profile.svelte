@@ -72,7 +72,7 @@
     font-size: 36px;
     margin: 2% 0;
 
-    color: whitesmoke;
+    color: var(--white);
   }
 
   .description {
@@ -80,6 +80,6 @@
     white-space: pre-line;
     margin: 2% 0;
 
-    color: whitesmoke;
+    color: var(--white);
   }
 </style>

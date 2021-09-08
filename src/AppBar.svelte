@@ -20,8 +20,12 @@
     font-size: 36px;
 
     width: 50%;
+  }
 
-    flex-grow: 1;
+  @media (min-width: 1440px) {
+    .bar {
+      flex-grow: 1;
+    }
   }
 
   .bar.big {
@@ -38,7 +42,7 @@
     height: 120px; */
     background-color: rgba(170, 65, 65, 0.75); /* #AA4141 */
     
-    color: black;
+    color: var(--black);
 
     display: flex;
     align-items: center;
@@ -53,7 +57,7 @@
   }
 
   .bar__button.selected {
-    color: white;
+    color: var(--white);
     background-color: rgba(170, 65, 65, 1); /* #AA4141 */
   }
 </style>

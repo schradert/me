@@ -17,14 +17,23 @@
     align-items: center;
     gap: 2rem;
 
-    padding: 1%;
+    padding: 2%;
+
+    flex: 1;
   }
 
   .banner.big {
     max-height: 85vh;
     width: 100%;
     flex-direction: row;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  @media screen and (max-width: 1326px) and (min-width: 990px) {
+    .banner.big {
+      justify-content: space-between;
+    }
   }
 </style>
