@@ -9,9 +9,11 @@
 <div class="box" style={headColor ? 'background-color: #343434' : ''}>
   <div class="banner__tail" style={`background-color: ${tailColor}`}></div>
   {#if headColor}
-  <div class="next">
-    <p class="title" style={`color: ${titleColor}`}>{titleCapital}</p>
-    <img class="next__icon" src="/icon/doubledown.svg" alt="Go to next section" />
+  <div class="next" style={`color: var(--${titleColor})`}>
+    <p class="title">{titleCapital}</p>
+    <svg viewBox="0 0 36 36">
+      <use xlink:href="/icon/doubledown.svg#doubledown"></use>
+    </svg>
   </div>
   <div class="banner__head" style={`background-color: ${headColor}`}></div>
   {/if}
@@ -38,13 +40,15 @@
     justify-content: center;
 
     padding-bottom: 2em;
+
+    fill: currentColor;
   }
 
   .title {
     font-size: 36px;
     margin: 2% 0;
 
-    color: whitesmoke;
+    color: inherit;
   }
 
   .banner__tail {
