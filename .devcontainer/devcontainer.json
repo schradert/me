@@ -1,21 +1,28 @@
 {
-	"name": "Portfolio",
-	
-  "dockerComposeFile": "./docker-compose.yaml",
-  "service": "website",
-  "workspaceFolder": "/usr/src/womb",
-  "shutdownAction": "stopCompose",
-  "forwardPorts": [8000],
-  "remoteUser": "forkman",
+	"name": "portfolio",
 
+  "image": "node:latest",
+  "postCreateCommand": "yarn install",
+  "appPort": [
+    5000
+  ],
+  "runArgs": [
+    "--name=portfolio"
+  ],
+  
 	"settings": { 
-    "git.path": ["/usr/bin/git", "C:\\Program Files\\Git\\cmd\\git.exe"],
+    "git.path": [
+      "/usr/bin/git", 
+      "C:\\Program Files\\Git\\cmd\\git.exe"
+    ],
+    "terminal.integrated.defaultProfile.linux": "bash"
 	},
 
 	// Extensions to be installed when container is created
 	"extensions": [
 		"svelte.svelte-vscode",
     "fivethree.vscode-svelte-snippets",
-    "eamodio.gitlens"
-  ],
+    "eamodio.gitlens",
+    "ms-azuretools.vscode-docker"
+  ]
 }
