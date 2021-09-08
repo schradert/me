@@ -37,14 +37,14 @@
     font-size: 36px;
     margin: 0 auto 0.5rem;
 
-    color: black;
+    color: var(--black);
   }
 
   .description {
     font-size: 14px;
     white-space: pre-line;
 
-    color: black;
+    color: var(--black);
   }
 
   .description, .title {
