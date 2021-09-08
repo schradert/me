@@ -1,10 +1,6 @@
 import { readable } from 'svelte/store';
 
-async function getRandomAvatar(): Promise<string> {
-  const response = await fetch("/avatarImages.json");
-  const images = await response.json();
-  return images[Math.floor(Math.random() * images.length)];
-}
+
 
 function getViewport(): { width: number, height: number } {
   const width = Math.max(
@@ -30,6 +26,8 @@ export const viewport = readable(getViewport(), set => {
   }
 });
 
+
+
 export const profiles = readable({
   work: [
     { name: "github", link: "https://github.com/schradert" },
@@ -41,6 +39,13 @@ export const profiles = readable({
     { name: "linkedin", link: "https://www.linkedin.com/in/tristan-schrader-6b6b3a95/" }
   ]
 });
+
+
+async function getRandomAvatar(): Promise<string> {
+  const response = await fetch("/avatarImages.json");
+  const images = await response.json();
+  return images[Math.floor(Math.random() * images.length)];
+}
 
 export const avatar = readable("default.png", set => {
   const interval = setInterval(async () => {
@@ -55,33 +60,35 @@ export const avatar = readable("default.png", set => {
 export const full_name = readable("Tristan Schrader");
 export const short_bio = readable("I like to build things.\nBrowse the things I’ve learned to build.\nData Engineer.");
 
+
+
 export const projects = readable({
   podra: {
     name: "Podra",
     description: "Keep up with highlights from internet communities with Podra, your web desktop with newsboard analytics.",
     img: "/img/projects/podra.webp",
     repoUrl: "https://github.com/schradert/podra",
-    tags: ["kafka", "spark", "kubernetes", "airflow", "terraform"]
+    tags: ["kafka", "spark", "airflow", "kubernetes", "terraform"]
   },
   flabyrinth: {
     name: "Flabyrinth",
     description: "Flabyrinth is a security-driven, content management platform and media sharing service for Terrace F. Club.",
     img: "/img/projects/flabyrinth.webp",
     repoUrl: "https://gitlab.com/terrace/tech/tfc-website",
-    tags: ["django", "vanillajs", "terraform", "gitlab", "google kubernetes engine"]
+    tags: ["django", "postgres", "vanillajs", "terraform", "gitlab", "redis", "google cloud platform"]
   },
   edu_az: {
-    name: "edu.az",
+    name: "az.edu",
     description: "Secondary education in a nutshell. Evaluate for yourself the achievements and challenges of Arizona public schools.",
     img: "/img/projects/edu_az.webp",
     repoUrl: "https://github.com/schradert/az.edu",
-    tags: ["bigquery", "sql", "pandas", "sklearn", "pytorch"]
+    tags: ["bigquery", "sql", "pytorch", "sklearn", "pandas"]
   },
   electric_hive: {
     name: "Electric Hive",
     description: "Electric Hive is an international programmer collective with opportunities for mentorship and collaboration in all IT.",
     img: "/img/projects/electric_hive.webp",
-    repoUrl: "https://github.com/schradert/podra",
+    repoUrl: "https://github.com/tomstrat/hive-website",
     tags: ["gatsby", "react", "github actions"]
   },
 })
