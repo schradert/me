@@ -1,9 +1,0 @@
-{
-  "extends": "@tsconfig/svelte/tsconfig.json",
-
-  "include": ["src/**/*", "tests/setupTests.ts"],
-  "exclude": ["node_modules/*", "public/*"],
-  "compilerOptions": {
-    "sourceMap": true
-  }
-}

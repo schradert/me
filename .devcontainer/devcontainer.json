@@ -1,28 +1,29 @@
 {
-	"name": "portfolio",
+  "name": "portfolio",
 
   "image": "node:latest",
-  "postCreateCommand": "yarn install",
-  "appPort": [
-    5000
-  ],
-  "runArgs": [
-    "--name=portfolio"
-  ],
-  
-	"settings": { 
-    "git.path": [
-      "/usr/bin/git", 
-      "C:\\Program Files\\Git\\cmd\\git.exe"
-    ],
-    "terminal.integrated.defaultProfile.linux": "bash"
-	},
+  "appPort": [5000],
+  "runArgs": ["--name=portfolio"],
 
-	// Extensions to be installed when container is created
-	"extensions": [
-		"svelte.svelte-vscode",
+  "settings": {
+    "git.path": ["/usr/bin/git", "C:\\Program Files\\Git\\cmd\\git.exe"],
+    "terminal.integrated.defaultProfile.linux": "bash",
+
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+
+  // Extensions to be installed when container is created
+  "extensions": [
+    "svelte.svelte-vscode",
     "fivethree.vscode-svelte-snippets",
     "eamodio.gitlens",
-    "ms-azuretools.vscode-docker"
+    "ms-azuretools.vscode-docker",
+    "mgtrrz.terraform-completer",
+    "hashicorp.terraform",
+    "tfsec.tfsec",
+    "esbenp.prettier-vscode",
+    "formulahendry.code-runner",
+    "cschleiden.vscode-github-actions"
   ]
 }
