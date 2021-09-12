@@ -1,0 +1,7 @@
+{
+  "terminal.integrated.defaultProfile.linux": "bash",
+
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "jest.jestCommandLine": "jest --runInBand",
+}
