@@ -1,0 +1,32 @@
+{
+  "display": "Cloud Functions",
+
+  "include": ["src", "tests"],
+  "exclude": ["node_modules", "dist"],
+
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+
+    "strict": true, // false
+    "skipLibCheck": true,
+    "types": [
+      "reflect-metadata",
+      "jest"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+
+    "forceConsistentCasingInFileNames": true,
+    
+    "outDir": "dist",
+    "rootDirs": [
+      "src",
+      "tests"
+    ]
+  }
+}
