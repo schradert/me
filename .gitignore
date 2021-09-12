@@ -1,11 +1,16 @@
 
 ### bloat ###
 node_modules/
-public/build/
 coverage/
 .terraform/
+yarn-error.log
+build/
+dist/
+data/
+imgresizer.zip
 
 ### secrets ###
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfvars
+credentials.json
