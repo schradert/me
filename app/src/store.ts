@@ -89,7 +89,7 @@ export const resume = readable({
 
 export const full_name = readable("Tristan Schrader");
 export const short_bio = readable(
-  "I like to build things.\nBrowse the things I’ve learned to build.\nData Engineer."
+  "Tristan's the name.\nData's the game."
 );
 
 export const bucketUrlPrefix =
