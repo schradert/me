@@ -1,4 +1,3 @@
-
 ### bloat ###
 node_modules/
 coverage/
@@ -8,6 +7,9 @@ build/
 dist/
 data/
 imgresizer.zip
+/.direnv/
+/.svelte-kit/
+/.pre-commit-config.yaml
 
 ### secrets ###
 terraform.tfstate

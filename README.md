@@ -1,21 +1,10 @@
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+# My Personal Website
 
----
+## TODOs
 
-### Development
-```bash
-cd svelte-app
-yarn install
-yarn dev
-```
-
-### Production
-```bash
-yarn build
-yarn start
-```
-
-### Single-page app mode?
-```js
-"start": "sirv public --single"
-```
+- [ ] Migrate svelte app to new Vite standard
+- [ ] Integrate imgResizer script if necessary
+- [ ] Nix build packages
+- [ ] Host deployment on cluster
+- [ ] Remove old Netlify deployment when new version deploys
+- [ ] Why is the devShell breaking git history?!
