@@ -1,5 +1,8 @@
 {nix, ...}: {
-  perSystem = {
+  perSystem = {pkgs, ...}: {
+    canivete.process-compose.services.settings.processes.app.command = let
+      bun = nix.getExe pkgs.bun;
+    in "${bun} install && ${bun} dev";
     canivete.pre-commit = {
       languages.javascript.enable = true;
       # Also run biome on .svelte files
