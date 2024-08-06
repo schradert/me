@@ -1,5 +1,5 @@
 <script lang="ts">
-import { avatar, full_name, profiles, short_bio } from "./store"
+import { avatar, full_name, profiles, short_bio } from "$lib/store"
 </script>
 
 <div class="banner__box">
