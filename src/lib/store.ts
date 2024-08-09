@@ -77,7 +77,7 @@ export const resume = readable({
 })
 
 export const full_name = readable("Tristan Schrader")
-export const short_bio = readable("Tristan's the name.\nData's the game.")
+export const short_bio = readable("Data Platform Engineer\nOpen Source Contributor\nHomelab Hobbyist")
 
 export const bucketUrlPrefix = "https://storage.googleapis.com/sandbox_main_bucket/portfolio"
 export const projects = readable({
