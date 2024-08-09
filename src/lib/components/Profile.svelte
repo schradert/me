@@ -1,10 +1,10 @@
 <script lang="ts">
-import { avatar, full_name, profiles, short_bio } from "$lib/store"
+import store from "$lib/store"
 </script>
 
 <div class="banner__box">
   <div class="banner__links">
-    {#each $profiles.work as { name, link }, i (i)}
+    {#each $store.profiles.work as { name, link }, i (i)}
     <a class="banner__icon" href={link}>
       <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
     </a>
@@ -12,17 +12,17 @@ import { avatar, full_name, profiles, short_bio } from "$lib/store"
   </div>
   <div
     class="avatar"
-    style="background-image: url({$avatar})" />
+    style="background-image: url({$store.basic.avatar})" />
   <div class="banner__links banner__contact">
-    {#each $profiles.contact as { name, link }, i (i)}
+    {#each $store.profiles.contact as { name, link }, i (i)}
     <a class="banner__icon" href={link}>
       <img src={`/icon/${name}.svg`} alt="Tristan's {name} profile">
     </a>
     {/each}
   </div>
 </div>
-<p class="title">{$full_name}</p>
-<p class="description">{$short_bio}</p>
+<p class="title">{$store.basic.name}</p>
+<p class="description">{$store.basic.bio}</p>
 
 
 <style>
@@ -61,7 +61,7 @@ import { avatar, full_name, profiles, short_bio } from "$lib/store"
 
   .avatar {
     border-radius: 50%;
-    background-position: center;
+    background-position: 50% 10%;
     background-size: cover;
     min-width: 10rem;
     min-height: 10rem;

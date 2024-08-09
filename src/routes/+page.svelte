@@ -5,26 +5,26 @@ import BannerConnector from "$lib/components/BannerConnector.svelte"
 import ContactForm from "$lib/components/ContactForm.svelte"
 import Profile from "$lib/components/Profile.svelte"
 import Project from "$lib/components/Project.svelte"
-import { bg, projects, resume, viewport } from "$lib/store"
+import store, { viewport } from "$lib/store"
 
 let showMore = false
 let section = "projects"
 </script>
 
-<main style={$viewport.width > 1080 ? `background-image: url(${$bg})` : ""}>
+<main>
   {#if $viewport.width < 720}
     <BannerBase color="#1F344A">
       <Profile />
     </BannerBase>
     <BannerConnector tailColor="#1F344A" headColor="#FBB500" title="projects" />
     <BannerBase color="#FBB500">
-      <Project {...$projects.canivete} big />
+      <Project {...$store.projects.canivete} big />
       {#if showMore}
-        <Project {...$projects.couchers} big />
-        <Project {...$projects.alexandria} big />
-        <Project {...$projects.dotfiles} big />
-        <Project {...$projects.sage} big />
-        <Project {...$projects.vilf} big />
+        <Project {...$store.projects.couchers} big />
+        <Project {...$store.projects.alexandria} big />
+        <Project {...$store.projects.dotfiles} big />
+        <Project {...$store.projects.sage} big />
+        <Project {...$store.projects.vilf} big />
       {:else}
         <button class="more__projects" on:click={() => (showMore = true)}
           >Load more projects ...</button
@@ -39,7 +39,7 @@ let section = "projects"
     />
     <BannerBase color="#CD1D67">
       <iframe
-        src={$resume.url}
+        src={$store.basic.resume}
         frameborder="0"
         title=""
         width="100%"
@@ -50,61 +50,28 @@ let section = "projects"
     <BannerBase color="#5CA1D3">
       <ContactForm />
     </BannerBase>
-  {:else if $viewport.width < 1440}
-    <div class="top">
+  {:else}
+    <div class="flex h-full w-full">
+    <div class="flex flex-col justify-stretch w-[40%]">
       <BannerBase color="#1F344A">
         <Profile />
       </BannerBase>
       <AppBar bind:section />
     </div>
-    {#if section === "projects"}
-      <BannerBase color="#FBB500" big>
-        <Project {...$projects.couchers} big />
-        <Project {...$projects.canivete} big />
-        <Project {...$projects.alexandria} big />
-        <Project {...$projects.dotfiles} big />
-        <Project {...$projects.sage} big />
-        <Project {...$projects.vilf} big />
-      </BannerBase>
-    {:else if section === "resume"}
-      <BannerBase color="#CD1D67" big>
-        <iframe
-          src={$resume.url}
-          frameborder="0"
-          title=""
-          width="100%"
-          id="resume"
-        />
-      </BannerBase>
-    {:else}
-      <BannerBase color="#5CA1D3" big>
-        <ContactForm />
-      </BannerBase>
-    {/if}
-  {:else}
-    <div class="top">
-      <div class="banner__box">
-        <BannerBase color="#1F344A">
-          <Profile />
-        </BannerBase>
-        <BannerConnector tailColor="#1F344A" />
-      </div>
-      <AppBar bind:section big />
-    </div>
-    <div class="content__box">
+    <div class="w-[60%] h-full">
       {#if section === "projects"}
         <BannerBase color="#FBB500" big>
-          <Project {...$projects.couchers} big />
-          <Project {...$projects.canivete} big />
-          <Project {...$projects.alexandria} big />
-          <Project {...$projects.dotfiles} big />
-          <Project {...$projects.sage} big />
-          <Project {...$projects.vilf} big />
+          <Project {...$store.projects.couchers} big />
+          <Project {...$store.projects.canivete} big />
+          <Project {...$store.projects.alexandria} big />
+          <Project {...$store.projects.dotfiles} big />
+          <Project {...$store.projects.sage} big />
+          <Project {...$store.projects.vilf} big />
         </BannerBase>
       {:else if section === "resume"}
         <BannerBase color="#CD1D67" big>
           <iframe
-            src={$resume.url}
+            src={$store.basic.resume}
             frameborder="0"
             title=""
             width="100%"
@@ -117,6 +84,7 @@ let section = "projects"
         </BannerBase>
       {/if}
     </div>
+    </div>
   {/if}
 </main>
 
@@ -126,10 +94,6 @@ let section = "projects"
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   .content__box {
@@ -145,12 +109,6 @@ let section = "projects"
   .banner__box {
     width: 500px;
     margin-left: 10%;
-  }
-
-  .top {
-    display: flex;
-    justify-content: stretch;
-    position: relative;
   }
 
   .more__projects {
