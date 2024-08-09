@@ -25,7 +25,7 @@ export const profiles = readable({
     { name: "kaggle", link: "https://kaggle.com/tristanschrader" },
   ],
   contact: [
-    { name: "email", link: "mailto:schrader.tristan@gmail.com" },
+    { name: "email", link: "mailto:tristanschrader@pm.me" },
     {
       name: "linkedin",
       link: "https://www.linkedin.com/in/tristan-schrader-6b6b3a95/",
