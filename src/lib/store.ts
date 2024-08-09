@@ -72,9 +72,7 @@ function asReadableStore({ imageType }: { imageType: string }) {
 
 export const avatar = asReadableStore({ imageType: "avatar" })
 export const bg = asReadableStore({ imageType: "bg" })
-export const resume = readable({
-  url: "https://storage.googleapis.com/sandbox_main_bucket/portfolio/resume.pdf",
-})
+export const resume = readable({ url: "https://drive.google.com/file/d/1T9Vy9mUjaS6GLKzKcjzOh8Y7Y4IWrshN/preview" })
 
 export const full_name = readable("Tristan Schrader")
 export const short_bio = readable("Data Platform Engineer\nOpen Source Contributor\nHomelab Hobbyist")
