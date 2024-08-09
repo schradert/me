@@ -18,11 +18,13 @@ let section = "projects"
     </BannerBase>
     <BannerConnector tailColor="#1F344A" headColor="#FBB500" title="projects" />
     <BannerBase color="#FBB500">
-      <Project {...$projects.podra} />
+      <Project {...$projects.canivete} big />
       {#if showMore}
-        <Project {...$projects.flabyrinth} />
-        <Project {...$projects.edu_az} />
-        <Project {...$projects.electric_hive} />
+        <Project {...$projects.couchers} big />
+        <Project {...$projects.alexandria} big />
+        <Project {...$projects.dotfiles} big />
+        <Project {...$projects.sage} big />
+        <Project {...$projects.vilf} big />
       {:else}
         <button class="more__projects" on:click={() => (showMore = true)}
           >Load more projects ...</button
@@ -57,10 +59,12 @@ let section = "projects"
     </div>
     {#if section === "projects"}
       <BannerBase color="#FBB500" big>
-        <Project {...$projects.podra} big />
-        <Project {...$projects.flabyrinth} big />
-        <Project {...$projects.edu_az} big />
-        <Project {...$projects.electric_hive} big />
+        <Project {...$projects.couchers} big />
+        <Project {...$projects.canivete} big />
+        <Project {...$projects.alexandria} big />
+        <Project {...$projects.dotfiles} big />
+        <Project {...$projects.sage} big />
+        <Project {...$projects.vilf} big />
       </BannerBase>
     {:else if section === "resume"}
       <BannerBase color="#CD1D67" big>
@@ -90,10 +94,12 @@ let section = "projects"
     <div class="content__box">
       {#if section === "projects"}
         <BannerBase color="#FBB500" big>
-          <Project {...$projects.podra} big />
-          <Project {...$projects.flabyrinth} big />
-          <Project {...$projects.edu_az} big />
-          <Project {...$projects.electric_hive} big />
+          <Project {...$projects.couchers} big />
+          <Project {...$projects.canivete} big />
+          <Project {...$projects.alexandria} big />
+          <Project {...$projects.dotfiles} big />
+          <Project {...$projects.sage} big />
+          <Project {...$projects.vilf} big />
         </BannerBase>
       {:else if section === "resume"}
         <BannerBase color="#CD1D67" big>

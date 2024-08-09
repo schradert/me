@@ -81,36 +81,46 @@ export const short_bio = readable("Data Platform Engineer\nOpen Source Contribut
 
 export const bucketUrlPrefix = "https://storage.googleapis.com/sandbox_main_bucket/portfolio"
 export const projects = readable({
-  podra: {
-    name: "Podra",
-    description:
-      "Keep up with highlights from internet communities with Podra, your web desktop with newsboard analytics.",
-    img: getProjectUrl("podra"),
-    repoUrl: "https://github.com/schradert/podra",
-    tags: ["kafka", "spark", "airflow", "kubernetes", "terraform"],
+  couchers: {
+    name: "Couchers",
+    description: "Next-generation couchsurfing platform.",
+    img: getProjectUrl("couchers"),
+    repoUrl: "https://github.com/couchers-org/couchers",
+    tags: ["gRPC", "SQLAlchemy", "NextJS", "PostGIS", "Docker"],
   },
-  flabyrinth: {
-    name: "Flabyrinth",
-    description:
-      "Flabyrinth is a security-driven, content management platform and media sharing service for Terrace F. Club.",
-    img: getProjectUrl("flabyrinth"),
-    repoUrl: "https://gitlab.com/terrace/tech/tfc-website",
-    tags: ["django", "postgres", "vanillajs", "terraform", "gitlab", "redis", "google cloud platform"],
+  canivete: {
+    name: "Canivete",
+    description: "Repository framework for developing, packaging, and deploying Nix packages to Kubernetes clusters managed with OpenTofu.",
+    img: getProjectUrl("canivete"),
+    repoUrl: "https://github.com/schradert/canivete",
+    tags: ["Nix", "NixOS", "Kubernetes", "OpenTofu", "Podman"],
   },
-  edu_az: {
-    name: "az.edu",
-    description:
-      "Secondary education in a nutshell. Evaluate for yourself the achievements and challenges of Arizona public schools.",
-    img: getProjectUrl("edu_az"),
-    repoUrl: "https://github.com/schradert/az.edu",
-    tags: ["bigquery", "sql", "pytorch", "sklearn", "pandas"],
+  alexandria: {
+    name: "Alexandria",
+    description: "Multimedia library manager and habit tracker.",
+    img: getProjectUrl("alexandria"),
+    repoUrl: "https://gitlab.com/bunkbed/alexandria",
+    tags: ["Rust", "PostgreSQL", "SvelteKit", "Tauri", "Docker"],
   },
-  electric_hive: {
-    name: "Electric Hive",
-    description:
-      "Electric Hive is an international programmer collective with opportunities for mentorship and collaboration in all IT.",
-    img: getProjectUrl("electric_hive"),
-    repoUrl: "https://github.com/electrichive/hive-website",
-    tags: ["gatsby", "react", "github actions"],
+  dotfiles: {
+    name: "Dotfiles",
+    description: "Declarative configuration of all personal devices and homelab.",
+    img: getProjectUrl("dotfiles"),
+    repoUrl: "https://github.com/schradert/dotfiles",
+    tags: ["canivete", "Linux", "Darwin", "Windows", "Android"],
+  },
+  sage: {
+    name: "Sage",
+    description: "Graph-based process design tool.",
+    img: getProjectUrl("sage"),
+    repoUrl: "https://github.com/schradert/sage",
+    tags: ["canivete", "SvelteKit", "SurrealDB", "Xyflow", "FastAPI"],
+  },
+  vilf: {
+    name: "VILF",
+    description: "Vegans In Love with Food: vegan food blog with a map!",
+    img: getProjectUrl("vilf"),
+    repoUrl: "https://github.com/ItsiW/VILF",
+    tags: ["canivete", "Python", "Markdown", "GCP", "Selenium"],
   },
 })

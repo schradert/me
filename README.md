@@ -3,7 +3,7 @@
 ## TODOs
 
 - [x] Migrate svelte app to new Vite standard
-- [ ] Change the projects emphasized
+- [x] Change the projects emphasized
 - [ ] Set up media bucket
 - [ ] Integrate imgResizer script if necessary
 - [ ] Nix build packages
