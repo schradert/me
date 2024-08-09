@@ -3,7 +3,7 @@ let message: string
 let subject: string
 
 function handleSubmit(): void {
-  window.open(`mailto:schrader.tristan@gmail.com?subject=${subject}&body=${message}`)
+  window.open(`mailto:tristanschrader@pm.me?subject=${subject}&body=${message}`)
   message = ""
   subject = ""
 }
