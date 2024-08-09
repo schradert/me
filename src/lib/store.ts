@@ -54,10 +54,6 @@ function getDefaultImageUrl(imageType: string): string {
   return getImageUrl(imageType, "default")
 }
 
-function getProjectUrl(name: string): string {
-  return getImageUrl("project", name)
-}
-
 function asReadableStore({ imageType }: { imageType: string }) {
   return readable(getDefaultImageUrl(imageType), set => {
     const interval = setInterval(async () => {
@@ -77,47 +73,46 @@ export const resume = readable({ url: "https://drive.google.com/file/d/1T9Vy9mUj
 export const full_name = readable("Tristan Schrader")
 export const short_bio = readable("Data Platform Engineer\nOpen Source Contributor\nHomelab Hobbyist")
 
-export const bucketUrlPrefix = "https://storage.googleapis.com/sandbox_main_bucket/portfolio"
 export const projects = readable({
   couchers: {
     name: "Couchers",
-    description: "Next-generation couchsurfing platform.",
-    img: getProjectUrl("couchers"),
+    description: "Next-generation couchsurfing platform with 40k strong user base.",
+    img: "couchers.svg",
     repoUrl: "https://github.com/couchers-org/couchers",
     tags: ["gRPC", "SQLAlchemy", "NextJS", "PostGIS", "Docker"],
   },
   canivete: {
     name: "Canivete",
-    description: "Repository framework for developing, packaging, and deploying Nix packages to Kubernetes clusters managed with OpenTofu.",
-    img: getProjectUrl("canivete"),
+    description: "Repository framework for developing, packaging, and deploying Nix packages.",
+    img: "nix.svg",
     repoUrl: "https://github.com/schradert/canivete",
     tags: ["Nix", "NixOS", "Kubernetes", "OpenTofu", "Podman"],
   },
   alexandria: {
     name: "Alexandria",
-    description: "Multimedia library manager and habit tracker.",
-    img: getProjectUrl("alexandria"),
+    description: "Multimedia library manager and habit tracker for desktop.",
+    img: "bunkbed.png",
     repoUrl: "https://gitlab.com/bunkbed/alexandria",
     tags: ["Rust", "PostgreSQL", "SvelteKit", "Tauri", "Docker"],
   },
   dotfiles: {
     name: "Dotfiles",
     description: "Declarative configuration of all personal devices and homelab.",
-    img: getProjectUrl("dotfiles"),
+    img: "nix.svg",
     repoUrl: "https://github.com/schradert/dotfiles",
     tags: ["canivete", "Linux", "Darwin", "Windows", "Android"],
   },
   sage: {
     name: "Sage",
-    description: "Graph-based process design tool.",
-    img: getProjectUrl("sage"),
+    description: "R&D process design and data entry tool with graph networks.",
+    img: "xyflow.ico",
     repoUrl: "https://github.com/schradert/sage",
     tags: ["canivete", "SvelteKit", "SurrealDB", "Xyflow", "FastAPI"],
   },
   vilf: {
     name: "VILF",
     description: "Vegans In Love with Food: vegan food blog with a map!",
-    img: getProjectUrl("vilf"),
+    img: "vilf.png",
     repoUrl: "https://github.com/ItsiW/VILF",
     tags: ["canivete", "Python", "Markdown", "GCP", "Selenium"],
   },

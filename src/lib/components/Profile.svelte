@@ -56,7 +56,7 @@ import { avatar, full_name, profiles, short_bio } from "$lib/store"
     justify-content: center;
   }
   .banner__icon:hover {
-    background-color: #D0D4CF;
+    background-color: #FBB500;
   }
 
   .avatar {
