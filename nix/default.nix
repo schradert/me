@@ -1,5 +1,65 @@
 {nix, ...}: {
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    self',
+    ...
+  }: {
+    canivete.dream2nix.packages = {
+      app-node_modules.module = {
+        config,
+        dream2nix,
+        ...
+      }: {
+        imports = [dream2nix.modules.dream2nix.mkDerivation];
+        paths.package = ../.;
+        deps = {nixpkgs, ...}: {
+          inherit (nixpkgs) bun;
+        };
+        name = "app-node_modules";
+        version = "0.0.1";
+        mkDerivation = {
+          src = ../.;
+          nativeBuildInputs = [config.deps.bun];
+          buildPhase = "bun install --no-progress --frozen-lockfile";
+          installPhase = ''
+            mkdir -p $out/node_modules
+            cp -R ./node_modules $out
+          '';
+          # Playwright has shebangs that get patched and break FOD
+          dontPatchShebangs = true;
+          outputHash = "vtJn6ksZlQf/0waRmKCemyefJQaFDERDWmD2mu7c+RU=";
+          outputHashAlgo = "sha256";
+          outputHashMode = "recursive";
+        };
+      };
+      app.module = {
+        config,
+        dream2nix,
+        ...
+      }: {
+        imports = [dream2nix.modules.dream2nix.mkDerivation];
+        paths.package = ../.;
+        deps = {nixpkgs, ...}: {
+          inherit (nixpkgs) bun makeBinaryWrapper;
+        };
+        name = "app";
+        version = "0.0.1";
+        mkDerivation = {
+          src = ../.;
+          nativeBuildInputs = [config.deps.makeBinaryWrapper];
+          buildInputs = [config.deps.bun];
+          buildPhase = ''
+            ln -s ${self'.packages.app-node_modules}/node_modules ./node_modules
+            bun run build
+          '';
+          installPhase = ''
+            mkdir -p $out/bin
+            cp -R ./build/* $out
+            makeBinaryWrapper ${nix.getExe config.deps.bun} $out/bin/app --add-flags "x http-server $out"
+          '';
+        };
+      };
+    };
     canivete.process-compose.services.settings.processes.app.command = let
       bun = nix.getExe pkgs.bun;
     in "${bun} install && ${bun} dev";

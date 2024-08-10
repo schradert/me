@@ -10,6 +10,7 @@ imgresizer.zip
 /.direnv/
 /.svelte-kit/
 /.pre-commit-config.yaml
+result
 
 ### secrets ###
 terraform.tfstate
