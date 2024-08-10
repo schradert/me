@@ -4,6 +4,7 @@
     self',
     ...
   }: {
+    packages.bun = pkgs.bun;
     canivete.dream2nix.packages = {
       app-node_modules.module = {
         config,
@@ -61,7 +62,7 @@
       };
     };
     canivete.process-compose.services.settings.processes.app.command = let
-      bun = nix.getExe pkgs.bun;
+      bun = nix.getExe self'.packages.bun;
     in "${bun} install && ${bun} dev";
     canivete.pre-commit = {
       languages.javascript.enable = true;
