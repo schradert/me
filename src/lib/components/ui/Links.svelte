@@ -8,8 +8,8 @@ export let links: Link[]
 
 <div class="links">
   {#each links as { name, link }}
-    <a href={link} class="hover:bg-yellow p-2 rounded-full w-[48px] h-[48px] flex items-center justify-center">
-      <img src="/icon/{name}.svg" />
+    <a href={link} target="_blank" class="hover:bg-yellow p-2 rounded-full w-[48px] h-[48px] flex items-center justify-center">
+      <img src="/icon/{name}.svg" alt={name} />
     </a>
   {/each}
 </div>

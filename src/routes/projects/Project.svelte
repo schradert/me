@@ -4,12 +4,11 @@ export let description: string
 export let img: string
 export let repoUrl: string
 export let tags: string[]
-export let big = false
 </script>
 
 <div class="max-w-[400px] py-4">
   <a href={repoUrl} target="_blank" class="title flex items-center gap-4 text-3xl text-black group hover:decoration-black hover:underline">
-    <img src="/icon/{img}" class="h-[48px] w-[48px] p-1 group-hover:bg-[#1F344A] rounded-md" />
+    <img src="/icon/{img}" class="h-[48px] w-[48px] p-1 group-hover:bg-[#1F344A] rounded-md" alt={name} />
     {name}
   </a>
   <p>{description}</p>
