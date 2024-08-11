@@ -20,7 +20,7 @@ If there is a hash mismatch because the dependencies changed, replace that `outp
 - [x] Set up media bucket
 - [ ] Integrate imgResizer script if necessary
 - [x] Nix build packages
-- [ ] Podman container with Arion
+- [x] Podman container with Arion
 - [ ] Host deployment on cluster
 - [ ] Remove old Netlify deployment when new version deploys
 - [ ] Why is the devShell breaking git history?!
