@@ -1,12 +1,18 @@
 {
-  perSystem = {inputs', nix, pkgs, self', ...}: let
+  perSystem = {
+    inputs',
+    nix,
+    pkgs,
+    self',
+    ...
+  }: let
     inherit (inputs'.nix2container.packages.nix2container) buildImage buildLayer;
     inherit (nix) getExe;
     inherit (pkgs) arion bun git openssh rsync writeShellScriptBin;
     inherit (self'.packages) me;
     ssh = getExe openssh;
     domain = "trdos.me";
-    name = me.name;
+    inherit (me) name;
     tag = me.version;
   in {
     canivete.arion.modules.main = {self'', ...}: {services.me.image.command = [(getExe self''.packages.me)];};

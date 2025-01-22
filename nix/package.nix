@@ -2,7 +2,6 @@
   perSystem = {
     config,
     nix,
-    pkgs,
     system,
     ...
   }: let

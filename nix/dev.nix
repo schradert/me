@@ -1,5 +1,10 @@
 {
-  perSystem = {nix, pkgs, self', ...}: {
+  perSystem = {
+    nix,
+    pkgs,
+    self',
+    ...
+  }: {
     packages.bun = pkgs.bun;
     process-compose.services.settings.processes.app.command = let
       bun = nix.getExe self'.packages.bun;

@@ -1,5 +1,10 @@
 {
-  perSystem = {nix, pkgs, self', ...}: let
+  perSystem = {
+    nix,
+    pkgs,
+    self',
+    ...
+  }: let
     inherit (nix) getExe toList;
     inherit (pkgs) kapp writeShellScriptBin;
     inherit (self'.packages) container kubenix;
